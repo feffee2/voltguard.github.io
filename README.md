@@ -2,6 +2,19 @@
 
 Sito statico (HTML/CSS/JS puro, nessuna build necessaria) per **Voltguard**, bot di sicurezza per Discord.
 
+## ⚠️ Il bot vero è nella cartella `download/`
+
+`download/voltguard-bot.zip` contiene il codice sorgente completo e funzionante del bot Discord
+(anti-raid, anti-spam, automod, verifica, backup) e del pannello admin web, pronti per essere
+scompattati e configurati con il tuo token Discord. Istruzioni complete nel README dentro lo zip.
+
+**Prima di pubblicare il sito, in `script.js` sostituisci:**
+- `DISCORD_INVITE_URL` con il link OAuth2 reale del tuo bot (lo trovi nel README dentro lo zip, sezione 2)
+- `SUPPORT_SERVER_URL` con il link al tuo server Discord di supporto
+
+Tutti i bottoni "Aggiungi a Discord" e "Server di supporto" del sito usano queste due costanti,
+quindi basta modificarle in un solo punto.
+
 ## Struttura
 
 ```

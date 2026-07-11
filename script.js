@@ -1,9 +1,29 @@
 /* ===================================================================
    VOLTGUARD — script principale
 =================================================================== */
+
+/* ============ CONFIGURAZIONE ============
+   Modifica solo questi due valori quando il bot è pronto:
+
+   1) DISCORD_INVITE_URL: il link OAuth2 reale generato in
+      Discord Developer Portal → la tua app → OAuth2 → URL Generator
+      (scope "bot" + i permessi elencati nel README del bot).
+      Formato: https://discord.com/oauth2/authorize?client_id=IL_TUO_CLIENT_ID&permissions=...&scope=bot
+
+   2) SUPPORT_SERVER_URL: il link di invito al tuo server Discord di supporto.
+*/
+const DISCORD_INVITE_URL = 'https://discord.com/oauth2/authorize?client_id=INSERISCI_QUI_IL_CLIENT_ID&permissions=270032214&scope=bot%20applications.commands';
+const SUPPORT_SERVER_URL = 'https://discord.gg/INSERISCI_QUI_IL_TUO_INVITO';
+
+function wireDiscordLinks() {
+  document.querySelectorAll('.invite-link').forEach(a => { a.href = DISCORD_INVITE_URL; });
+  document.querySelectorAll('.support-link').forEach(a => { a.href = SUPPORT_SERVER_URL; });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  wireDiscordLinks();
   initNavbar();
   initMobileMenu();
   initNavIndicator();

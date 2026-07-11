@@ -1,27 +1,398 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voltguard</title>
-    <style>
-        body {
-            background: #0a0a0a;
-            color: white;
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-        }
-        h1 {
-            font-size: 5rem;
-            color: #3b82f6;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voltguard — Sicurezza intelligente per Discord</title>
+<meta name="description" content="Voltguard protegge il tuo server Discord da raid, spam e bot malevoli in tempo reale. Anti-raid, auto-moderazione IA e verifica utenti in un unico bot.">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>SIAMO ON!</h1>
+
+<canvas id="bg-canvas"></canvas>
+<div class="grain"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="30" height="30">
+          <path d="M24 3 L42 11 V23 C42 34 34.5 41.5 24 45 C13.5 41.5 6 34 6 23 V11 Z" fill="none" stroke="url(#gradMark)" stroke-width="2.5"/>
+          <path d="M24 13 L24 27 M17 20 L31 20" stroke="url(#gradMark)" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="gradMark" x1="0" y1="0" x2="48" y2="48">
+              <stop offset="0" stop-color="#5ea1ff"/>
+              <stop offset="1" stop-color="#2f6bff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="brand-name">VOLTGUARD</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#funzionalita" data-nav>Funzionalità</a>
+      <a href="#come-funziona" data-nav>Come funziona</a>
+      <a href="#prezzi" data-nav>Prezzi</a>
+      <a href="#recensioni" data-nav>Recensioni</a>
+      <a href="#faq" data-nav>FAQ</a>
+      <span class="nav-indicator" id="navIndicator"></span>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="#prezzi" class="btn btn-ghost">Accedi</a>
+      <a href="https://discord.com" target="_blank" rel="noopener" class="btn btn-primary">
+        <span>Aggiungi a Discord</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <button class="nav-burger" id="navBurger" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#funzionalita" data-nav>Funzionalità</a>
+    <a href="#come-funziona" data-nav>Come funziona</a>
+    <a href="#prezzi" data-nav>Prezzi</a>
+    <a href="#recensioni" data-nav>Recensioni</a>
+    <a href="#faq" data-nav>FAQ</a>
+    <a href="https://discord.com" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Aggiungi a Discord</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">
+          <span class="pulse-dot"></span>
+          <span>Sistema di difesa attivo · v4.2</span>
+        </div>
+        <h1 class="hero-title">
+          Il tuo server,<br>
+          <span class="hero-title-accent">sotto scudo</span> costante.
+        </h1>
+        <p class="hero-sub">
+          Voltguard osserva ogni join, ogni messaggio, ogni account sospetto — e reagisce in
+          <strong>meno di 40 millisecondi</strong>. Raid, spam e bot falsi si fermano prima che tu
+          debba anche solo accorgertene.
+        </p>
+        <div class="hero-cta">
+          <a href="https://discord.com" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            <span>Proteggi il tuo server</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#come-funziona" class="btn btn-outline btn-lg">Guarda come funziona</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-stars" aria-hidden="true">★★★★★</div>
+          <span>4.9/5 su <strong>2.300+</strong> community protette</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="orb-ring r1"></div>
+        <div class="orb-ring r2"></div>
+        <div class="orb-ring r3"></div>
+        <div class="scan-panel">
+          <div class="scan-head">
+            <span class="scan-dot red"></span><span class="scan-dot yellow"></span><span class="scan-dot green"></span>
+            <span class="scan-title">voltguard://scanner</span>
+          </div>
+          <div class="scan-body" id="scanBody"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-bar reveal">
+      <div class="stat">
+        <span class="stat-num" data-target="14382" data-suffix="">0</span>
+        <span class="stat-label">Server protetti</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="52" data-suffix="M">0</span>
+        <span class="stat-label">Minacce bloccate</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="38" data-suffix="ms">0</span>
+        <span class="stat-label">Tempo di risposta medio</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="99.98" data-suffix="%" data-decimal="true">0</span>
+        <span class="stat-label">Uptime garantito</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOGHI/FASCIA FIDUCIA ============ -->
+  <section class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Anti-Raid</span><span>•</span><span>Anti-Spam</span><span>•</span><span>Verifica Utenti</span><span>•</span>
+      <span>Auto-Moderazione IA</span><span>•</span><span>Log in tempo reale</span><span>•</span><span>Backup automatico</span><span>•</span>
+      <span>Anti-Raid</span><span>•</span><span>Anti-Spam</span><span>•</span><span>Verifica Utenti</span><span>•</span>
+      <span>Auto-Moderazione IA</span><span>•</span><span>Log in tempo reale</span><span>•</span><span>Backup automatico</span><span>•</span>
+    </div>
+  </section>
+
+  <!-- ============ FUNZIONALITA ============ -->
+  <section class="section" id="funzionalita">
+    <div class="section-head reveal">
+      <span class="tag">Funzionalità</span>
+      <h2>Un solo bot, ogni fronte coperto.</h2>
+      <p>Costruito per chi gestisce community da migliaia di membri e non può permettersi di dormire con un occhio aperto.</p>
+    </div>
+
+    <div class="bento reveal">
+      <article class="bento-card big">
+        <div class="card-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2 L21 6 V12 C21 17 17 21 12 22 C7 21 3 17 3 12 V6 Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Anti-Raid Intelligente</h3>
+        <p>Rileva ondate di ingressi anomali analizzando pattern, età account e velocità di join. Blocca l'invasione e mette in quarantena gli account sospetti in automatico.</p>
+        <div class="card-graph" aria-hidden="true">
+          <svg viewBox="0 0 300 90" preserveAspectRatio="none"><polyline points="0,70 30,65 60,68 90,40 120,50 150,20 180,35 210,15 240,25 270,10 300,18" fill="none" stroke="url(#g1)" stroke-width="2"/><defs><linearGradient id="g1" x1="0" y1="0" x2="300" y2="0"><stop offset="0" stop-color="#2f6bff"/><stop offset="1" stop-color="#4cc9f0"/></linearGradient></defs></svg>
+        </div>
+      </article>
+
+      <article class="bento-card">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v10H8l-4 4V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Filtro Anti-Spam adattivo</h3>
+        <p>Riconosce messaggi ripetuti, link malevoli e menzioni di massa, con soglie che si adattano al ritmo reale del tuo server.</p>
+      </article>
+
+      <article class="bento-card">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M17 5l2 2 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Verifica Utenti</h3>
+        <p>Captcha dinamico e controllo età account prima di assegnare qualsiasi ruolo. Gli alt e i bot restano fuori dalla porta.</p>
+      </article>
+
+      <article class="bento-card">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12h4l2-7 4 14 2-7h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Auto-Moderazione IA</h3>
+        <p>Analisi semantica di messaggi, immagini e link in tempo reale per intercettare contenuti tossici o NSFW prima che vengano visti.</p>
+      </article>
+
+      <article class="bento-card">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h8M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Log e Audit in tempo reale</h3>
+        <p>Ogni azione, ogni ban, ogni modifica ai ruoli: tracciata e consultabile dalla dashboard, con ricerca istantanea.</p>
+      </article>
+
+      <article class="bento-card wide">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3v6M12 15v6M4.2 7.8l5.2 3M14.6 13.2l5.2 3M4.2 16.2l5.2-3M14.6 10.8l5.2-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Backup automatico di ruoli e canali</h3>
+        <p>In caso di disastro, ripristini l'intera struttura del server — permessi, ruoli e canali — con un solo comando.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ COME FUNZIONA ============ -->
+  <section class="section" id="come-funziona">
+    <div class="section-head reveal">
+      <span class="tag">Processo</span>
+      <h2>Protetto in tre passaggi, non in tre ore.</h2>
+      <p>Nessuna configurazione infinita: Voltguard entra, impara il tuo server e comincia a difenderlo.</p>
+    </div>
+
+    <div class="steps reveal">
+      <div class="step-line" aria-hidden="true"></div>
+      <article class="step">
+        <span class="step-num">01</span>
+        <h3>Invita Voltguard</h3>
+        <p>Un click e il bot entra nel tuo server con i permessi minimi necessari, revocabili in ogni momento.</p>
+      </article>
+      <article class="step">
+        <span class="step-num">02</span>
+        <h3>Configura in 2 minuti</h3>
+        <p>Dalla dashboard scegli soglie anti-raid, parole bloccate e ruoli protetti. Modelli pronti per community piccole o enormi.</p>
+      </article>
+      <article class="step">
+        <span class="step-num">03</span>
+        <h3>Lascia fare a lui</h3>
+        <p>Voltguard monitora 24/7, agisce in autonomia e ti avvisa solo per le decisioni che contano davvero.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ RECENSIONI ============ -->
+  <section class="section section-reviews" id="recensioni">
+    <div class="section-head reveal">
+      <span class="tag">Recensioni</span>
+      <h2>Community reali, notti più tranquille.</h2>
+      <p>Quello che dicono admin e moderatori che usano Voltguard ogni giorno.</p>
+    </div>
+
+    <div class="reviews-marquee">
+      <div class="review-row" id="reviewRowA"></div>
+    </div>
+    <div class="reviews-marquee reverse">
+      <div class="review-row" id="reviewRowB"></div>
+    </div>
+  </section>
+
+  <!-- ============ PREZZI ============ -->
+  <section class="section" id="prezzi">
+    <div class="section-head reveal">
+      <span class="tag">Prezzi</span>
+      <h2>Un piano per ogni dimensione di community.</h2>
+      <p>Pagamento sicuro tramite PayPal. Nessun vincolo, disdici quando vuoi.</p>
+    </div>
+
+    <div class="pricing reveal">
+      <article class="price-card">
+        <h3>Free</h3>
+        <p class="price-desc">Le basi per server piccoli e in crescita.</p>
+        <div class="price-tag"><span class="price-amount">€0</span><span class="price-period">/sempre</span></div>
+        <ul class="price-features">
+          <li>Anti-spam standard</li>
+          <li>Verifica utenti base</li>
+          <li>Log fino a 7 giorni</li>
+          <li>1 configurazione anti-raid</li>
+        </ul>
+        <a href="https://discord.com" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;">Inizia gratis</a>
+      </article>
+
+      <article class="price-card featured">
+        <span class="price-badge">Più scelto</span>
+        <h3>Pro</h3>
+        <p class="price-desc">Per community attive che non possono rischiare.</p>
+        <div class="price-tag"><span class="price-amount">€4,99</span><span class="price-period">/mese</span></div>
+        <ul class="price-features">
+          <li>Anti-raid intelligente completo</li>
+          <li>Auto-moderazione IA</li>
+          <li>Log illimitati e ricerca avanzata</li>
+          <li>Backup automatico giornaliero</li>
+          <li>Supporto prioritario</li>
+        </ul>
+        <div id="paypal-pro" class="paypal-slot"></div>
+      </article>
+
+      <article class="price-card">
+        <h3>Enterprise</h3>
+        <p class="price-desc">Per server enormi con team di moderazione dedicati.</p>
+        <div class="price-tag"><span class="price-amount">€14,99</span><span class="price-period">/mese</span></div>
+        <ul class="price-features">
+          <li>Tutto ciò che offre Pro</li>
+          <li>Multi-server management</li>
+          <li>Regole e whitelist personalizzate via API</li>
+          <li>Account manager dedicato</li>
+        </ul>
+        <div id="paypal-enterprise" class="paypal-slot"></div>
+      </article>
+    </div>
+
+    <p class="pricing-note">Pagamenti elaborati in modo sicuro da PayPal · fatturazione ricorrente annullabile in qualsiasi momento dal tuo account PayPal.</p>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="section-head reveal">
+      <span class="tag">FAQ</span>
+      <h2>Domande frequenti.</h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <details class="faq-item" open>
+        <summary>Voltguard rallenta il mio server?</summary>
+        <div class="faq-answer">No. L'infrastruttura è distribuita su più region e ogni azione viene eseguita in meno di 40ms, senza percepibile ritardo per gli utenti.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Posso personalizzare le regole anti-raid?</summary>
+        <div class="faq-answer">Sì, dalla dashboard puoi impostare soglie di join, età minima account, parole bloccate e azioni automatiche (kick, ban, quarantena).</div>
+      </details>
+      <details class="faq-item">
+        <summary>Che permessi servono per invitare il bot?</summary>
+        <div class="faq-answer">Voltguard richiede solo i permessi minimi indispensabili (gestione ruoli, kick, ban, gestione messaggi). Puoi revocarli in ogni momento da Discord.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Come funziona il pagamento con PayPal?</summary>
+        <div class="faq-answer">Al momento della sottoscrizione verrai reindirizzato a PayPal per completare il pagamento in totale sicurezza. Nessun dato della carta transita dai nostri server.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Posso disdire in qualsiasi momento?</summary>
+        <div class="faq-answer">Certo. Puoi annullare l'abbonamento ricorrente direttamente dal tuo pannello PayPal, senza penali né vincoli di durata.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINALE ============ -->
+  <section class="cta-final reveal">
+    <div class="cta-final-inner">
+      <h2>Il prossimo raid non aspetta. Nemmeno Voltguard.</h2>
+      <p>Aggiungi il bot in 60 secondi e lascia che sia lui a fare la guardia.</p>
+      <a href="https://discord.com" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+        <span>Aggiungi Voltguard a Discord</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <path d="M24 3 L42 11 V23 C42 34 34.5 41.5 24 45 C13.5 41.5 6 34 6 23 V11 Z" fill="none" stroke="#4cc9f0" stroke-width="2.5"/>
+          </svg>
+        </span>
+        <span class="brand-name">VOLTGUARD</span>
+      </div>
+      <p>Sicurezza automatizzata per community Discord di ogni dimensione.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Prodotto</h4>
+      <a href="#funzionalita">Funzionalità</a>
+      <a href="#prezzi">Prezzi</a>
+      <a href="#recensioni">Recensioni</a>
+    </div>
+    <div class="footer-col">
+      <h4>Supporto</h4>
+      <a href="#faq">FAQ</a>
+      <a href="https://discord.com" target="_blank" rel="noopener">Server di supporto</a>
+      <a href="mailto:supporto@voltguard.gg">supporto@voltguard.gg</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legale</h4>
+      <a href="#">Termini di servizio</a>
+      <a href="#">Privacy policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> Voltguard. Tutti i diritti riservati.</span>
+    <span>Non affiliato a Discord Inc.</span>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Torna su">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR&vault=true&intent=subscription" data-namespace="paypal_sdk" async></script>
+<script src="script.js"></script>
 </body>
 </html>

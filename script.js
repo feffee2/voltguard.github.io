@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initBentoTilt();
   initBackToTop();
-  initPayPalButtons();
 });
 
 /* -------------------------------------------------------------
@@ -402,55 +401,43 @@ function initBackToTop(){
   btn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
 }
 
-/* -------------------------------------------------------------
-   Pulsanti PayPal (Pro & Enterprise)
-   NOTE: il client-id "sb" è quello sandbox di test di PayPal.
-   Per andare in produzione, sostituisci "sb" nel tag <script> in
-   index.html con il tuo Client ID reale, ottenibile su
-   https://developer.paypal.com/dashboard/applications
-------------------------------------------------------------- */
-function initPayPalButtons(){
-  if (typeof paypal === 'undefined'){
-    // Se lo SDK non è ancora pronto, riprova tra poco
-    setTimeout(initPayPalButtons, 300);
-    return;
-  }
+// ── SPOTIFY BACKGROUND PLAYER ─────────────────────────────────────────────────
+// Player musicale di sottofondo tramite l'iFrame API ufficiale di Spotify.
+// Per policy dei browser l'audio non può partire prima di un'interazione
+// dell'utente: agganciamo quindi il primo click/tap/tasto/scroll sulla pagina
+// e avviamo la riproduzione in quel momento (di fatto "subito" per l'utente).
 
-  const style = {
-    layout: 'vertical',
-    color: 'blue',
-    shape: 'pill',
-    label: 'pay',
-    height: 44
+const SPOTIFY_TRACK_ID = '1FsURdV1P2M3VCKdbTsZak'; // sostituisci con un altro track ID se vuoi cambiare canzone
+
+let spotifyController = null;
+let spotifyStarted = false;
+
+window.onSpotifyIframeApiReady = (IFrameAPI) => {
+  const element = document.getElementById('spotify-embed-container');
+  if (!element) return;
+
+  const options = {
+    uri: `spotify:track:${SPOTIFY_TRACK_ID}`,
+    width: '1',
+    height: '1'
   };
 
-  const renderPlan = (containerId, amount, label) => {
-    const el = document.getElementById(containerId);
-    if (!el || el.dataset.rendered) return;
-    el.dataset.rendered = 'true';
+  IFrameAPI.createController(element, options, (controller) => {
+    spotifyController = controller;
+  });
+};
 
-    paypal.Buttons({
-      style,
-      createOrder: (data, actions) => {
-        return actions.order.create({
-          purchase_units: [{
-            description: `Abbonamento Voltguard — ${label}`,
-            amount: { value: amount, currency_code: 'EUR' }
-          }]
-        });
-      },
-      onApprove: (data, actions) => {
-        return actions.order.capture().then((details) => {
-          el.innerHTML = `<div class="paypal-success">✔ Pagamento completato, grazie ${details.payer.name.given_name}! Riceverai un'email di conferma.</div>`;
-        });
-      },
-      onError: (err) => {
-        console.error('Errore PayPal:', err);
-        el.innerHTML = `<div class="paypal-error">Si è verificato un errore con il pagamento. Riprova tra poco.</div>`;
-      }
-    }).render('#' + containerId);
-  };
-
-  renderPlan('paypal-pro', '4.99', 'Pro');
-  renderPlan('paypal-enterprise', '14.99', 'Enterprise');
+function startBackgroundMusic() {
+  if (spotifyStarted || !spotifyController) return;
+  spotifyStarted = true;
+  spotifyController.play();
+  window.removeEventListener('click', startBackgroundMusic);
+  window.removeEventListener('keydown', startBackgroundMusic);
+  window.removeEventListener('touchstart', startBackgroundMusic);
+  window.removeEventListener('scroll', startBackgroundMusic);
 }
+
+window.addEventListener('click', startBackgroundMusic, { once: true, passive: true });
+window.addEventListener('keydown', startBackgroundMusic, { once: true });
+window.addEventListener('touchstart', startBackgroundMusic, { once: true, passive: true });
+window.addEventListener('scroll', startBackgroundMusic, { once: true, passive: true });

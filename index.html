@@ -41,7 +41,7 @@
     <nav class="nav-links" id="navLinks">
       <a href="#funzionalita" data-nav>Funzionalità</a>
       <a href="#come-funziona" data-nav>Come funziona</a>
-      <a href="#prezzi" data-nav>Prezzi</a>
+      <a href="#prezzi" data-nav>Open Source</a>
       <a href="#recensioni" data-nav>Recensioni</a>
       <a href="#download" data-nav>Download</a>
       <a href="#faq" data-nav>FAQ</a>
@@ -49,7 +49,7 @@
     </nav>
 
     <div class="nav-actions">
-      <a href="#prezzi" class="btn btn-ghost">Accedi</a>
+      <a href="#prezzi" class="btn btn-ghost">Scarica</a>
       <a href="https://voltguard.it/#download" target="_blank" rel="noopener" class="btn btn-primary invite-link">
         <span>Aggiungi a Discord</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -63,7 +63,7 @@
   <div class="nav-mobile" id="navMobile">
     <a href="#funzionalita" data-nav>Funzionalità</a>
     <a href="#come-funziona" data-nav>Come funziona</a>
-    <a href="#prezzi" data-nav>Prezzi</a>
+    <a href="#prezzi" data-nav>Open Source</a>
     <a href="#recensioni" data-nav>Recensioni</a>
     <a href="#download" data-nav>Download</a>
     <a href="#faq" data-nav>FAQ</a>
@@ -119,11 +119,11 @@
 
     <div class="stat-bar reveal">
       <div class="stat">
-        <span class="stat-num" data-target="14382" data-suffix="">0</span>
+        <span class="stat-num" data-target="5000" data-suffix="">0</span>
         <span class="stat-label">Server protetti</span>
       </div>
       <div class="stat">
-        <span class="stat-num" data-target="52" data-suffix="M">0</span>
+        <span class="stat-num" data-target="50M" data-suffix="M">0</span>
         <span class="stat-label">Minacce bloccate</span>
       </div>
       <div class="stat">
@@ -253,58 +253,33 @@
     </div>
   </section>
 
-  <!-- ============ PREZZI ============ -->
+  <!-- ============ OPEN SOURCE / FREE ============ -->
   <section class="section" id="prezzi">
     <div class="section-head reveal">
-      <span class="tag">Prezzi</span>
-      <h2>Un piano per ogni dimensione di community.</h2>
-      <p>Pagamento sicuro tramite PayPal. Nessun vincolo, disdici quando vuoi.</p>
+      <span class="tag">Open Source</span>
+      <h2>100% gratuito. Per sempre.</h2>
+      <p>Voltguard è un progetto open source realizzato da <strong>f3ffe_</strong>. Nessun abbonamento, nessun limite artificiale, nessuna carta di credito.</p>
     </div>
 
-    <div class="pricing reveal">
-      <article class="price-card">
-        <h3>Free</h3>
-        <p class="price-desc">Le basi per server piccoli e in crescita.</p>
+    <div class="pricing reveal" style="justify-content:center;">
+      <article class="price-card featured" style="max-width:420px;">
+        <span class="price-badge">Open Source</span>
+        <h3>Tutto incluso</h3>
+        <p class="price-desc">L'intero set di funzionalità di Voltguard, senza costi né piani a pagamento.</p>
         <div class="price-tag"><span class="price-amount">€0</span><span class="price-period">/sempre</span></div>
-        <ul class="price-features">
-          <li>Anti-spam standard</li>
-          <li>Verifica utenti base</li>
-          <li>Log fino a 7 giorni</li>
-          <li>1 configurazione anti-raid</li>
-        </ul>
-        <a href="https://discord.com" target="_blank" rel="noopener" class="btn btn-outline invite-link" style="width:100%;justify-content:center;">Inizia gratis</a>
-      </article>
-
-      <article class="price-card featured">
-        <span class="price-badge">Più scelto</span>
-        <h3>Pro</h3>
-        <p class="price-desc">Per community attive che non possono rischiare.</p>
-        <div class="price-tag"><span class="price-amount">€4,99</span><span class="price-period">/mese</span></div>
         <ul class="price-features">
           <li>Anti-raid intelligente completo</li>
           <li>Auto-moderazione IA</li>
           <li>Log illimitati e ricerca avanzata</li>
           <li>Backup automatico giornaliero</li>
-          <li>Supporto prioritario</li>
+          <li>Verifica utenti e quarantena automatica</li>
+          <li>Codice sorgente aperto, ospitabile da chiunque</li>
         </ul>
-        <div id="paypal-pro" class="paypal-slot"></div>
-      </article>
-
-      <article class="price-card">
-        <h3>Enterprise</h3>
-        <p class="price-desc">Per server enormi con team di moderazione dedicati.</p>
-        <div class="price-tag"><span class="price-amount">€14,99</span><span class="price-period">/mese</span></div>
-        <ul class="price-features">
-          <li>Tutto ciò che offre Pro</li>
-          <li>Multi-server management</li>
-          <li>Regole e whitelist personalizzate via API</li>
-          <li>Account manager dedicato</li>
-        </ul>
-        <div id="paypal-enterprise" class="paypal-slot"></div>
+        <a href="https://voltguard.it/#download" target="_blank" rel="noopener" class="btn btn-primary invite-link" style="width:100%;justify-content:center;">Aggiungi a Discord</a>
       </article>
     </div>
 
-    <p class="pricing-note">Pagamenti elaborati in modo sicuro da PayPal · fatturazione ricorrente annullabile in qualsiasi momento dal tuo account PayPal.</p>
+    <p class="pricing-note">Voltguard è un progetto open source creato da <strong>f3ffe_</strong> — codice sorgente disponibile per essere scaricato, ispezionato e ospitato liberamente da chiunque.</p>
   </section>
 
   <!-- ============ DOWNLOAD ============ -->
@@ -315,7 +290,7 @@
       <p>Scarica il codice sorgente completo del bot e del pannello admin: gira sul tuo server, con il tuo token Discord.</p>
     </div>
     <div class="card" style="max-width:640px;margin:0 auto;background:var(--panel,#0c1322);border:1px solid var(--border,rgba(138,168,255,.14));border-radius:16px;padding:28px;text-align:center;">
-      <p style="margin-top:0;color:var(--muted,#8b9bc4)">Include bot anti-raid/anti-spam/automod/verifica/backup, pannello admin con login Discord e API per regole personalizzate (Enterprise). Istruzioni di installazione incluse nel README.</p>
+      <p style="margin-top:0;color:var(--muted,#8b9bc4)">Include bot anti-raid/anti-spam/automod/verifica/backup, pannello admin con login Discord e API per regole personalizzate. Istruzioni di installazione incluse nel README.</p>
       <a href="download/voltguard-bot.zip" download class="btn btn-primary btn-lg">
         <span>Scarica il bot (.zip)</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -344,12 +319,12 @@
         <div class="faq-answer">Voltguard richiede solo i permessi minimi indispensabili (gestione ruoli, kick, ban, gestione messaggi). Puoi revocarli in ogni momento da Discord.</div>
       </details>
       <details class="faq-item">
-        <summary>Come funziona il pagamento con PayPal?</summary>
-        <div class="faq-answer">Al momento della sottoscrizione verrai reindirizzato a PayPal per completare il pagamento in totale sicurezza. Nessun dato della carta transita dai nostri server.</div>
+        <summary>Voltguard è davvero gratis?</summary>
+        <div class="faq-answer">Sì, completamente. È un progetto open source creato da f3ffe_: nessun piano a pagamento, nessun abbonamento, nessuna funzione bloccata dietro un paywall.</div>
       </details>
       <details class="faq-item">
-        <summary>Posso disdire in qualsiasi momento?</summary>
-        <div class="faq-answer">Certo. Puoi annullare l'abbonamento ricorrente direttamente dal tuo pannello PayPal, senza penali né vincoli di durata.</div>
+        <summary>Posso contribuire al progetto o ospitarlo io stesso?</summary>
+        <div class="faq-answer">Certo. Il codice sorgente è disponibile nella sezione Download: puoi scaricarlo, modificarlo e farlo girare sul tuo server con il tuo token Discord.</div>
       </details>
     </div>
   </section>
@@ -385,7 +360,7 @@
     <div class="footer-col">
       <h4>Prodotto</h4>
       <a href="#funzionalita">Funzionalità</a>
-      <a href="#prezzi">Prezzi</a>
+      <a href="#prezzi">Open Source</a>
       <a href="#recensioni">Recensioni</a>
     </div>
     <div class="footer-col">
@@ -401,7 +376,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© <span id="year"></span> Voltguard. Tutti i diritti riservati.</span>
+    <span>© <span id="year"></span> Voltguard. Progetto open source by <strong>f3ffe_</strong>.</span>
     <span>Non affiliato a Discord Inc.</span>
   </div>
 </footer>
@@ -410,7 +385,10 @@
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
-<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR&vault=true&intent=subscription" data-namespace="paypal_sdk" async></script>
+<!-- Player musicale di sottofondo (Spotify embed ufficiale) -->
+<div id="spotify-embed-container" style="position:fixed;bottom:12px;right:12px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;"></div>
+
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 <script src="script.js"></script>
 </body>
 </html>

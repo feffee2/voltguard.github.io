@@ -349,6 +349,7 @@ function initReviews(){
 
   const rowA = document.getElementById('reviewRowA');
   const rowB = document.getElementById('reviewRowB');
+  if (!rowA || !rowB) return;
   const half = Math.ceil(reviews.length / 2);
   const setA = reviews.slice(0, half);
   const setB = reviews.slice(half);

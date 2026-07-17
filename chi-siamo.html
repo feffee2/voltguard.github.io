@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi siamo — Voltguard</title>
+<meta name="description" content="Scopri chi c'è dietro Voltguard, il bot di sicurezza open source per Discord creato da f3ffe_ (Francesco Capra).">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="grain"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="30" height="30">
+          <path d="M24 3 L42 11 V23 C42 34 34.5 41.5 24 45 C13.5 41.5 6 34 6 23 V11 Z" fill="none" stroke="url(#gradMark)" stroke-width="2.5"/>
+          <path d="M24 13 L24 27 M17 20 L31 20" stroke="url(#gradMark)" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="gradMark" x1="0" y1="0" x2="48" y2="48">
+              <stop offset="0" stop-color="#5ea1ff"/>
+              <stop offset="1" stop-color="#2f6bff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="brand-name">VOLTGUARD</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#funzionalita">Funzionalità</a>
+      <a href="index.html#come-funziona">Come funziona</a>
+      <a href="index.html#prezzi">Open Source</a>
+      <a href="index.html#recensioni">Recensioni</a>
+      <a href="index.html#download">Download</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="chi-siamo.html" class="active">Chi siamo</a>
+      <span class="nav-indicator" id="navIndicator"></span>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="index.html#prezzi" class="btn btn-ghost">Scarica</a>
+      <a href="https://voltguard.it/#download" target="_blank" rel="noopener" class="btn btn-primary invite-link">
+        <span>Aggiungi a Discord</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <button class="nav-burger" id="navBurger" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html#funzionalita">Funzionalità</a>
+    <a href="index.html#come-funziona">Come funziona</a>
+    <a href="index.html#prezzi">Open Source</a>
+    <a href="index.html#recensioni">Recensioni</a>
+    <a href="index.html#download">Download</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="https://discord.com" target="_blank" rel="noopener" class="btn btn-primary invite-link" style="margin-top:8px;justify-content:center;">Aggiungi a Discord</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO CHI SIAMO ============ -->
+  <section class="about-hero reveal">
+    <div class="eyebrow">
+      <span class="pulse-dot"></span>
+      <span>Chi siamo</span>
+    </div>
+    <h1>Un solo sviluppatore, un obiettivo chiaro:<br>community più sicure.</h1>
+    <p class="about-sub">
+      Voltguard nasce da un progetto personale trasformato in uno strumento gratuito e open source,
+      usato ogni giorno da migliaia di server Discord per difendersi da raid, spam e bot malevoli.
+    </p>
+  </section>
+
+  <!-- ============ FONDATORE ============ -->
+  <section class="founder-wrap">
+    <div class="founder-card reveal">
+      <div class="founder-avatar" aria-hidden="true">FC</div>
+      <div>
+        <div class="founder-name-row">
+          <span class="founder-handle">f3ffe_</span>
+          <span class="founder-realname">— Francesco Capra</span>
+        </div>
+        <span class="founder-role">Fondatore &amp; sviluppatore di Voltguard</span>
+        <p>
+          Dietro l'handle <strong>f3ffe_</strong> c'è <strong>Francesco Capra</strong>, il creatore e
+          sviluppatore di Voltguard. Ha progettato e scritto da solo l'intero bot — dal motore
+          anti-raid al pannello admin — con l'obiettivo di dare a chiunque gestisca una community
+          Discord uno strumento di sicurezza affidabile, senza costi né abbonamenti nascosti.
+        </p>
+        <p>
+          L'idea nasce dall'esperienza diretta nella moderazione di server con migliaia di membri:
+          la frustrazione di raid improvvisi, account falsi e ore passate a ripulire manualmente i
+          danni ha spinto Francesco a costruire un sistema capace di reagire in automatico, in meno
+          di 40 millisecondi, prima ancora che un moderatore se ne accorga.
+        </p>
+        <p>
+          Oggi Voltguard è mantenuto attivamente da Francesco, che continua a sviluppare nuove
+          funzionalità e a rendere pubblico il codice sorgente, in modo che chiunque possa
+          ispezionarlo, contribuire o ospitarlo in autonomia.
+        </p>
+        <div class="founder-links">
+          <a href="index.html#download" class="btn btn-outline">Vedi il codice sorgente</a>
+          <a href="mailto:supporto@voltguard.gg" class="btn btn-ghost">Contatta il team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALORI ============ -->
+  <section class="section" style="padding-bottom:20px;">
+    <div class="section-head reveal">
+      <span class="tag">La nostra filosofia</span>
+      <h2>Perché Voltguard è come è.</h2>
+      <p>Tre principi guidano ogni scelta tecnica del progetto, dal primo giorno.</p>
+    </div>
+  </section>
+
+  <div class="values-grid reveal">
+    <article class="value-card">
+      <h3>Gratuito per sempre</h3>
+      <p>Nessun piano a pagamento, nessuna funzione bloccata dietro un paywall. Voltguard resta open source e accessibile a tutti.</p>
+    </article>
+    <article class="value-card">
+      <h3>Trasparenza totale</h3>
+      <p>Il codice è pubblico e scaricabile: chiunque può verificare cosa fa il bot, proporre modifiche o ospitarlo sul proprio server.</p>
+    </article>
+    <article class="value-card">
+      <h3>Community al centro</h3>
+      <p>Ogni funzionalità nasce da esigenze reali di admin e moderatori, raccolte direttamente nel server di supporto.</p>
+    </article>
+  </div>
+
+  <!-- ============ CTA FINALE ============ -->
+  <section class="cta-final reveal">
+    <div class="cta-final-inner">
+      <h2>Vuoi far parte della community di Voltguard?</h2>
+      <p>Aggiungi il bot al tuo server o entra nel server di supporto per parlare direttamente con f3ffe_.</p>
+      <a href="https://discord.com" target="_blank" rel="noopener" class="btn btn-primary btn-lg invite-link">
+        <span>Aggiungi Voltguard a Discord</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <path d="M24 3 L42 11 V23 C42 34 34.5 41.5 24 45 C13.5 41.5 6 34 6 23 V11 Z" fill="none" stroke="#4cc9f0" stroke-width="2.5"/>
+          </svg>
+        </span>
+        <span class="brand-name">VOLTGUARD</span>
+      </div>
+      <p>Sicurezza automatizzata per community Discord di ogni dimensione.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Prodotto</h4>
+      <a href="index.html#funzionalita">Funzionalità</a>
+      <a href="index.html#prezzi">Open Source</a>
+      <a href="index.html#recensioni">Recensioni</a>
+      <a href="chi-siamo.html">Chi siamo</a>
+    </div>
+    <div class="footer-col">
+      <h4>Supporto</h4>
+      <a href="index.html#faq">FAQ</a>
+      <a href="https://discord.com" target="_blank" rel="noopener" class="support-link">Server di supporto</a>
+      <a href="mailto:supporto@voltguard.gg">supporto@voltguard.gg</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legale</h4>
+      <a href="#">Termini di servizio</a>
+      <a href="#">Privacy policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> Voltguard. Progetto open source by <strong>f3ffe_</strong>.</span>
+    <span>Non affiliato a Discord Inc.</span>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Torna su">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- Contenitori richiesti da script.js su ogni pagina (nascosti, non usati qui) -->
+<div id="reviewRowA" style="display:none" aria-hidden="true"></div>
+<div id="reviewRowB" style="display:none" aria-hidden="true"></div>
+
+<!-- Player musicale di sottofondo (Spotify embed ufficiale) -->
+<div id="spotify-embed-container" style="position:fixed;bottom:12px;right:12px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;"></div>
+
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+<script src="script.js"></script>
+</body>
+</html>
